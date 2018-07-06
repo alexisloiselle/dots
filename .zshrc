@@ -1,8 +1,3 @@
-# start x
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
-fi
-
 # Path to your oh-my-zsh installation.
  export ZSH=/home/alexis/.oh-my-zsh
 
@@ -35,10 +30,14 @@ export PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
 export PATH="$PATH:$HOME/go/bin"
 export GOPATH=$HOME/go
 xrdb -merge /home/alexis/.Xresources
-
 # custom scripts
 if [ -z $(echo $PATH | grep -o $HOME/scripts) ]; then
    export PATH="${PATH}:$HOME/scripts"
+fi
+
+# start x
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx
 fi
 
 alias gcom='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
