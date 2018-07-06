@@ -9,9 +9,6 @@ ZSH_THEME="my-wezm"
 # Uncomment the following line to use hyphen-insensitive completion. Case
 HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -44,3 +41,4 @@ alias gcom='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 alias cdl='cd ~/code/'
 alias c='clear'
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
+alias scrot='scrot ~/screenshots/%Y-%m-%d-%T-screenshot.png'

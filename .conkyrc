@@ -41,10 +41,10 @@ conky.text = [[
 ${color grey}${time %d/%m} $color${time %H:%M}
 ${color grey}${format_time $battery_time "\hh \mm"} $color${battery_percent}%
 ${color grey}wlan $color${wireless_essid}
-${color grey}cpu $color$cpu%
+${color grey}cpu $color${cpu cpu0}%
 ${color grey}ram $color$memperc%
 ${color grey}temp $color${hwmon 2 temp 2}°C
 ${color grey}wthr $color${exec cat /tmp/weather}
-${color grey}updt $color${exec yay -Pn}
+${color grey}updt $color${exec if output=$(yay -Pn); then echo $output; else echo n.a.; fi}
 ${color grey}pkgs $color${exec pacman -Q | wc -l}
 ]]
