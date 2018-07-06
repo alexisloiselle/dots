@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Dependencies:
+# xclip
+# imagemagick
+
+
+file=~/Screenshots/$(date +"%Y_%m_%d_%I_%M_%S_%p").png
+import -window root $file
+xclip -selection clipboard -t image/png -i $file 

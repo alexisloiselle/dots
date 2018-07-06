@@ -1,0 +1,196 @@
+set $mod Mod4
+set $alt Mod1
+set $terminal termite
+
+floating_modifier $mod
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+bindsym $alt+Tab focus right
+bindsym $alt+Shift+Tab focus left
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# disable mouse focus
+focus_follows_mouse no
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left 30 px
+bindsym $mod+Shift+Down move down 30 px
+bindsym $mod+Shift+Up move up 30 px
+bindsym $mod+Shift+Right move right 30 px
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+font pango:DejaVu Sans Mono 10
+
+# toggle tiling / floating
+bindsym $mod+Shift+w floating toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym Control+$mod+Right workspace next
+bindsym Control+$mod+Left workspace prev
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+assign [class="Code"] 2
+assign [class="Google-chrome"] 3
+for_window [class="Spotify"] move to workspace 10
+
+for_window [class="^Pavucontrol$"] floating enable
+
+# The Chrome "Page Unresponsive" dialog is not floating...
+for_window [title="Page Unresponsive"] floating enable
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+# These bindings trigger as soon as you enter the resize mode
+
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+bindsym j resize shrink width 10 px or 10 ppt
+bindsym k resize grow height 10 px or 10 ppt
+bindsym l resize shrink height 10 px or 10 ppt
+bindsym semicolon resize grow width 10 px or 10 ppt
+
+# same bindings, but for the arrow keys
+bindsym Left resize shrink width 50 px or 10 ppt
+bindsym Down resize grow height 50 px or 10 ppt
+bindsym Up resize shrink height 50 px or 10 ppt
+bindsym Right resize grow width 50 px or 10 ppt
+
+# back to normal: Enter or Escape
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+set $c_foreground #ebdbb2
+set $c_background #363636
+set $c_cursor #fff000
+set $c_black_d #363636
+set $c_black_l #424242
+set $c_white_d #e8d2b4
+set $c_white_l #fbf1c7
+set $c_red_d #cc241d
+set $c_red_l #fb4934
+
+#class					background?		border			text			split
+client.focused				$c_black_l		$c_black_l		$c_white_d		$c_white_d
+client.focused_inactive	$c_background	$c_background		$c_black_l		$c_black_d
+client.unfocused			$c_black_d		$c_background		$c_white_d		$c_black_d
+client.urgent				$c_red_d		$c_red_d		$c_foreground		$c_red_d
+client.background			$c_background
+
+hide_edge_borders both
+
+for_window [class="^.*"] border pixel 0
+#smart_gaps on
+
+gaps inner 15
+gaps outer 3
+
+set $power_control "[l]og out [s]uspend [h]ibernate [r]eboot [p]oweroff"
+mode  $power_control {
+bindsym l exec i3-msg exit; mode "default"
+bindsym s exec systemctl suspend; mode "default"
+bindsym h exec systemctl hibernate; mode "default"
+bindsym r exec systemctl reboot; mode "default"
+bindsym p exec systemctl poweroff; mode "default"
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+
+bindsym $mod+n mode $power_control
+bindsym $mod+g exec gaps
+
+### custom keybinds ###
+bindsym $mod+d exec rofi -show drun -theme glue_pro_blue -font "hack 14" -show-icons
+
+bindsym $alt+F4 kill
+bindsym --release $mod+Shift+x exec xkill
+
+bindsym $mod+p exec monitors
+bindsym $mod+t exec light
+bindsym $mod+$alt+l exec lock
+
+bindsym $mod+Return exec "$terminal"
+
+bindsym Print exec screenshot-custom
+
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym $mod+b exec google-chrome-stable --force-device-scale-factor=1.2 &
+bindsym $mod+m exec spot
+bindsym $mod+c exec code
+
+bindsym $mod+$alt+Return exec load-layout1 &
+#bindsym $mod+Space exec xkb-switch -n &
+
+## startup ##
+exec --no-startup-id startup &
