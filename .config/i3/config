@@ -85,6 +85,7 @@ assign [class="Google-chrome"] 3
 for_window [class="Spotify"] move to workspace 10
 
 for_window [class="^Pavucontrol$"] floating enable
+for_window [class="^Termite$"] floating enable
 
 # The Chrome "Page Unresponsive" dialog is not floating...
 for_window [title="Page Unresponsive"] floating enable
