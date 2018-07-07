@@ -172,9 +172,7 @@ bindsym $mod+$alt+l exec lock
 
 bindsym $mod+Return exec "$terminal"
 
-bindsym Print exec scrot ~/screenshots/%Y-%m-%d-%T-screenshot.png
-bindsym Control+Print exec scrot -s ~/screenshots/%Y-%m-%d-%T-screenshot.png
-
+bindsym --release Print exec scrot
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-

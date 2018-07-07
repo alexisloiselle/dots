@@ -1,0 +1,5 @@
+#!/bin/bash
+
+png_file=$(date +%s).png
+maim -s ~/screenshots/$png_file
+xclip -sel clip -t image/png < ~/screenshots/$png_file
