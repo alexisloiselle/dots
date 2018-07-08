@@ -108,7 +108,7 @@ label-layout-underline = ${colors.primary}
 
 [module/i3]
 type = internal/i3
-format = <label-state>
+format = <label-state> <label-mode>
 index-sort = true
 
 ws-icon-0 = "1;"
@@ -129,7 +129,7 @@ pin-workspaces = false
 
 label-mode-padding = 3
 ;label-mode-margin = 1
-label-mode-foreground = #000
+label-mode-foreground = #fff
 ;label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
