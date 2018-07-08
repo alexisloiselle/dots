@@ -3,12 +3,11 @@
 primary_monitor=$(xrandr | awk '/primary/ {print $1;}')
 primary_mode="--auto"
 
-secondary_monitor="$(xrandr | awk '/HDMI/ {print $1;}' | sed -n 1p)"
+secondary_monitor="$(xrandr | awk '/^DP1/ {print $1;}' | sed -n 1p)"
 secondary_mode="--auto"
 disconnected=$(xrandr | awk "/$secondary_monitor disconnected/")
 
-[ $HOSTNAME == "r4" ] && primary_mode="--mode 1920x1080 --rate 144"
-(pgrep -f top-secondary > /dev/null) && kill $(pgrep -f top-secondary)
+(pgrep -f top > /dev/null) && killall -p polybar
 
 case "$@" in
 	"1")
@@ -24,7 +23,6 @@ case "$@" in
 	"all")
 		if [ ! "$disconnected" ]; then 
 			xrandr --output $primary_monitor $primary_mode --output $secondary_monitor $secondary_mode --right-of $primary_monitor
-			polybar top-secondary -r &
 		else
 			echo "No secondary monitor connected"
 		fi
@@ -33,6 +31,10 @@ case "$@" in
 		xrandr --output $primary_monitor $primary_mode --output $secondary_monitor $secondary_mode --same-as $primary_monitor
 		;;
 	*)
-		(xrandr --listactivemonitors | grep -q $secondary_monitor) && monitors 1 || monitors all
-		;;
+                (xrandr --listactivemonitors | grep -q $secondary_monitor) && monitors 1 || monitors all
+                ;;
+
 esac
+
+launch-polybar
+

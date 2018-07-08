@@ -1,6 +1,6 @@
 #!/bin/bash
 
-(! pgrep -x "polybar" > /dev/null) && polybar top -r &
+launch-polybar &
 compton -cb &
 setxkbmap -layout us,ca -option 'grp:win_space_toggle'
 i3-msg "workspace 3; exec google-chrome-stable --force-device-scale-factor=1.2 &"
