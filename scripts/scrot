@@ -1,5 +1,7 @@
 #!/bin/bash
 
+notify-send 'scrot' 'waiting for selection...'
 png_file=$(date +%s).png
 maim -s ~/screenshots/$png_file
 xclip -sel clip -t image/png < ~/screenshots/$png_file
+notify-send 'scrot' 'saved to ~/screenshots'

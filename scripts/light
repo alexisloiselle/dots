@@ -4,6 +4,8 @@ current_light=$(printf "%.0f\n" $(xbacklight)) # round up xbacklight output
 
 if [ $current_light -lt 15 ] || [[ $1 = 0 ]]; then
 	xbacklight -set 100
+	redshift -x
 else
 	xbacklight -set 10
+	redshift -O 3500
 fi

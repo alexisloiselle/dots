@@ -12,6 +12,7 @@ disconnected=$(xrandr | awk "/$secondary_monitor disconnected/")
 case "$@" in
 	"1")
 		xrandr --output $secondary_monitor --off --output $primary_monitor $primary_mode
+		launch-polybar
 		;;
 	"2")
 		if [ ! "$disconnected" ]; then 
@@ -19,6 +20,7 @@ case "$@" in
 		else
 			echo "No monitor connected"
 		fi
+		launch-polybar
 		;;
 	"all")
 		if [ ! "$disconnected" ]; then 
@@ -26,15 +28,18 @@ case "$@" in
 		else
 			echo "No secondary monitor connected"
 		fi
+		launch-polybar
 		;;
 	"clone")
 		xrandr --output $primary_monitor $primary_mode --output $secondary_monitor $secondary_mode --same-as $primary_monitor
+		launch-polybar
 		;;
 	*)
-                (xrandr --listactivemonitors | grep -q $secondary_monitor) && monitors 1 || monitors all
-                ;;
+                if [ xrandr --listactivemonitors | grep -q $secondary_monitor ]; then
+			monitors 1
+		else
+			monitors all
+		fi
+		;;
 
 esac
-
-launch-polybar
-

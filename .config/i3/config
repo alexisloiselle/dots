@@ -85,7 +85,7 @@ assign [class="Google-chrome"] 3
 for_window [class="Spotify"] move to workspace 10
 
 for_window [class="^Pavucontrol$"] floating enable
-for_window [class="^Termite$"] floating enable
+for_window [class="^Termite$"] floating enable resize set 1262 822, move position 329 126
 
 # The Chrome "Page Unresponsive" dialog is not floating...
 for_window [title="Page Unresponsive"] floating enable
@@ -157,14 +157,13 @@ bindsym $mod+n mode $power_control
 bindsym $mod+g exec gaps
 
 ### custom keybinds ###
-bindsym $mod+d exec rofi -show drun -theme glue_pro_blue -font "hack 14" -show-icons
+bindsym $mod+d exec rofi -show drun -theme Monokai -font "Roboto 14" -show-icons
 
 bindsym $alt+F4 kill
 bindsym --release $mod+Shift+x exec xkill
 
 bindsym $mod+p exec monitors
 bindsym $mod+t exec light
-bindsym $mod+$alt+l exec lock
 
 bindsym $mod+Return exec "$terminal"
 
@@ -185,8 +184,8 @@ bindsym $mod+b exec google-chrome-stable --force-device-scale-factor=1.2 &
 bindsym $mod+m exec spot
 bindsym $mod+c exec code
 
-bindsym $mod+$alt+Return exec load-layout1 &
-#bindsym $mod+Space exec xkb-switch -n &
+bindsym $mod+q move scratchpad
+bindsym $mod+shift+q scratchpad show
 
 ## startup ##
 exec --no-startup-id startup &
