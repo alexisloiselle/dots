@@ -45,6 +45,6 @@ ${color grey}cpu $color${cpu cpu0}%
 ${color grey}ram $color$memperc%
 ${color grey}temp $color${hwmon 2 temp 2}°C
 ${color grey}wthr $color${exec cat /tmp/weather}
-${color grey}updt $color${exec if output=$((checkupdates && checkupdates-aur) | wc -l ); then echo $output; else echo n.a.; fi}
+${color grey}updt $color${exec if output=$((checkupdates) | wc -l ); then echo $output; else echo n.a.; fi}
 ${color grey}pkgs $color${exec pacman -Q | wc -l}
 ]]

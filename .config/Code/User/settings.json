@@ -15,5 +15,10 @@
         "editor.tabSize": 2
     },
     "workbench.iconTheme": "eq-material-theme-icons",
-    "git.autofetch": true
+    "git.autofetch": true,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "window.zoomLevel": 0,
+    "git.confirmSync": false
 }

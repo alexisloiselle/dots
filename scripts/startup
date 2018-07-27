@@ -9,6 +9,7 @@ load-layout &
 autolock &
 dunst &
 $HOME/.fehbg &	
+udiskie &
 
 bg="normal"
 if [ "$bg" = "pscircle" ] ; then

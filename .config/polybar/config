@@ -16,6 +16,7 @@ foreground-alt = #AAA
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+drun = #475b8e
 
 [bar/top]
 monitor = ${env:MONITOR:}
@@ -51,7 +52,7 @@ font-6 = "Font Awesome 5 Free:style=Solid:pixelsize=18;1"
 modules-left = drun i3
 modules-center = xwindow
 ;weather update installed
-modules-right = xbacklight volume xkeyboard battery date powermenu
+modules-right = xbacklight volume xkeyboard battery wlan date powermenu
 
 tray-position = right
 tray-padding = 1
@@ -111,7 +112,7 @@ type = custom/script
 exec = echo ""
 label-font = 7
 label-padding-left = 2
-label-foreground = ${colors.primary}
+label-foreground = ${colors.drun}
 click-left = rofi -show drun -theme Monokai -font "Roboto 14" -show-icons
 
 [module/i3]
