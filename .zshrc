@@ -14,7 +14,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export XDG_CURRENT_DESKTOP=KDE
-export PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
+# export PATH=$PATH:$HOME/.rbenv/shims
+export PATH=$PATH:`yarn global bin`
 export PATH="$PATH:$HOME/go/bin"
 export GOPATH=$HOME/go
 
@@ -32,3 +33,5 @@ alias gcom='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 alias cdl='cd ~/code/'
 alias c='clear'
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
+
+eval "$(rbenv init -)"

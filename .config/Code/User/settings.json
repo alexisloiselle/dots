@@ -19,6 +19,6 @@
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "git.confirmSync": false
 }
