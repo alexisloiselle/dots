@@ -9,9 +9,11 @@ echo n.a. > $weather_file
 
 while true
 do
-	while ! ping -c 1 -W 1 google.com; do
+	while ! nping -c1 google.com &> /dev/null
+	do
 		sleep 5
 	done
+	
 
 	location=$(curl -s http://ipinfo.io/loc)
 	request=$(curl -s https://api.darksky.net/forecast/$api_key/$location?units=ca&exclude=minutely,hourly,daily,flags)

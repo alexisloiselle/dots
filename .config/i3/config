@@ -156,6 +156,16 @@ bindsym Escape mode "default"
 }
 
 bindsym $mod+n mode $power_control
+
+set $mode_power [l]ogoff | [p]oweroff
+mode "$mode_power" {
+bindsym l exec i3-msg exit
+bindsym p exec systemctl poweroff
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+bindsym --release XF86PowerOff mode "$mode_power"
+
 bindsym $mod+g exec gaps
 
 ### custom keybinds ###
@@ -168,6 +178,7 @@ bindsym $mod+p exec monitors
 bindsym $mod+t exec light
 
 bindsym $mod+Return exec "$terminal"
+bindsym Control+$mod+$alt+l exec lock
 
 bindsym --release Print exec scrot
 

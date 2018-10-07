@@ -1,5 +1,6 @@
 #!/bin/bash
 
+systemd-inhibit --what=handle-power-key sleep infinity & 
 launch-polybar &
 compton -cb &
 setxkbmap -layout us,ca -option 'grp:win_space_toggle'

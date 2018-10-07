@@ -35,10 +35,10 @@ case "$@" in
 		launch-polybar
 		;;
 	*)
-        if xrandr --listactivemonitors | grep -q "$secondary_monitor" /dev/null; then
-			monitors 1
-		else
+        if xrandr | grep -q "^$secondary_monitor connected"; then
 			monitors all
+		else
+			monitors 1
 		fi
 		;;
 

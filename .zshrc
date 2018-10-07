@@ -13,7 +13,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export XDG_CURRENT_DESKTOP=KDE
 # export PATH=$PATH:$HOME/.rbenv/shims
 export PATH=$PATH:`yarn global bin`
 export PATH="$PATH:$HOME/go/bin"
