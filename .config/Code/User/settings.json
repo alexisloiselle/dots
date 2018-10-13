@@ -5,6 +5,9 @@
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
+    "[erb]": {
+        "editor.tabSize": 2
+    },
     "[ruby]": {
         "editor.tabSize": 2
     },
@@ -19,8 +22,9 @@
     "window.zoomLevel": 1,
     "git.confirmSync": false,
     "window.titleBarStyle": "custom",
-    "workbench.colorTheme": "Default Light+",
     "breadcrumbs.enabled": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "typescript.updateImportsOnFileMove.enabled": "always"
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.colorTheme": "Feather"
 }
