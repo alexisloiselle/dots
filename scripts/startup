@@ -6,18 +6,12 @@ compton -cb &
 setxkbmap -layout us,ca -option 'grp:win_space_toggle'
 i3-msg "workspace 3; exec google-chrome-stable --force-device-scale-factor=1.2 &"
 i3-msg "workspace 10; exec spot &"
-load-layout &
+i3-msg "workspace 1; exec alacritty &"
 autolock &
 dunst &
 $HOME/.fehbg &	
 udiskie &
-
-bg="normal"
-if [ "$bg" = "pscircle" ] ; then
-	refresh-pscircle &
-else
-	conky &	
-fi
+conky &	
 
 
 disown

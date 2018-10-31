@@ -1,4 +1,0 @@
-#!/bin/bash
-i3-msg "workspace 1; append_layout /home/alexis/.i3/workspace-1.json"
- termite &
-

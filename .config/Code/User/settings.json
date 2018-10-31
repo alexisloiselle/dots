@@ -26,5 +26,6 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "workbench.statusBar.feedback.visible": false,
-    "workbench.colorTheme": "Feather"
+    "workbench.colorTheme": "Feather",
+    "java.errors.incompleteClasspath.severity": "ignore"
 }
