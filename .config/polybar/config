@@ -50,9 +50,10 @@ font-5 = "Font Awesome 5 Brands:pixelsize=14;1"
 font-6 = "Font Awesome 5 Free:style=Solid:pixelsize=18;1"
 
 modules-left = drun i3
-modules-center = xwindow
-;weather update installed
-modules-right = xbacklight volume xkeyboard battery wlan date powermenu
+modules-center = spotify
+;xwindow weather update installed
+modules-right = weather xbacklight volume xkeyboard battery wlan date 
+powermenu
 
 tray-position = right
 tray-padding = 1
@@ -85,9 +86,26 @@ exec = pacman -Q | wc -l
 [module/weather]
 type = custom/script
 interval = 10
-label = %{A: xdg-open 'https\://www.google.com/search?q=weather' &:} %output%%{A}
-label-foreground = ${colors.foreground-alt}
+
+format = <label>
+format-underline = ${colors.primary}
+format-prefix =  
+format-prefix-foreground = ${colors.foreground-alt}
+
+label = %output%
+label-padding-left = 1
+
+click-left = xdg-open $(weather-url)
+
 exec = cat /tmp/weather
+
+[module/spotify]
+type = custom/script
+interval = 10
+format = <label>
+label = %output%
+label-foreground = ${colors.foreground-alt}
+exec = spotify-metadata
 
 [module/xwindow]
 type = internal/xwindow

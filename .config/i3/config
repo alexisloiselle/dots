@@ -81,7 +81,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 assign [class="Code"] 2
-assign [class="Google-chrome"] 3
+assign [class="Chromium"] 3
 assign [class="Firefox"] 3
 for_window [class="Spotify"] move to workspace 10
 
@@ -193,12 +193,13 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-bindsym $mod+b exec google-chrome-stable --force-device-scale-factor=1.2 &
+bindsym $mod+b exec chromium --force-device-scale-factor=1.2 &
 bindsym $mod+m exec spot
 bindsym $mod+c exec code
 
 bindsym $mod+q move scratchpad
 bindsym $mod+shift+q scratchpad show
+bindsym $mod+period exec emoji-keyboard -s &
 
 ## startup ##
 exec --no-startup-id startup &

@@ -1,16 +1,38 @@
 #!/bin/bash
 
+# on power button press
 systemd-inhibit --what=handle-power-key sleep infinity & 
+
+# polybar script
 launch-polybar &
-compton -cb &
+
+# compositor 
+compton -Ccb &
+
+# keyboard layouts
 setxkbmap -layout us,ca -option 'grp:win_space_toggle'
-i3-msg "workspace 3; exec google-chrome-stable --force-device-scale-factor=1.2 &"
-i3-msg "workspace 10; exec spot &"
+
+# open apps on startup
+i3-msg "workspace 3; exec chromium --force-device-scale-factor=1.2 &"
+#i3-msg "workspace 10; exec spot &"
 i3-msg "workspace 1; exec alacritty &"
-autolock &
+
+# notification daemon
 dunst &
+
+# background
 $HOME/.fehbg &	
+
+# automount usb
 udiskie &
+
+# conky stats
 conky -q &	
+
+# gestures
+$HOME/.rbenv/shims/fusuma -c $HOME/.config/fusuma/config.yml &
+
+# bug with pulseaudio
+rm $HOME/.config/pulse/cookie &
 
 disown

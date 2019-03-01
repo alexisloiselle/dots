@@ -18,6 +18,13 @@ export PATH=$PATH:`yarn global bin`
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.cargo"
 export GOPATH=$HOME/go
+export PATH="$PATH:/home/alexis/.dotnet/tools"
+export MSBuildSDKsPath=/opt/dotnet/sdk/2.2.102/Sdks
+export PATH=$MSBuildSDKsPath:$PATH
+export DOTNET_ROOT=/usr/bin
+
+export EDITOR='nano'
+export VISUAL='nano'
 
 # custom scripts
 if [ -z $(echo $PATH | grep -o $HOME/scripts) ]; then

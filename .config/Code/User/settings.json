@@ -14,6 +14,18 @@
     "[html]": {
         "editor.tabSize": 2
     },
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[scss]": {
+        "editor.tabSize": 2
+    },
+    "[markdown]": {
+        "editor.tabSize": 2
+    },
     "workbench.iconTheme": "eq-material-theme-icons",
     "git.autofetch": true,
     "gitlens.advanced.messages": {
@@ -27,5 +39,12 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "workbench.statusBar.feedback.visible": false,
     "workbench.colorTheme": "Feather",
-    "java.errors.incompleteClasspath.severity": "ignore"
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "emmet.includeLanguages": {
+        "erb": "html"
+    },
+    "omnisharp.path": "latest",
+    "gitlens.currentLine.scrollable": false,
+    "razor.disabled": true,
+    "java.configuration.checkProjectSettingsExclusions": false
 }

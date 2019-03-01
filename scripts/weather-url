@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo https://darksky.net/forecast/$(curl -s http://ipinfo.io/loc)/ca12/en
