@@ -46,5 +46,8 @@
     "omnisharp.path": "latest",
     "gitlens.currentLine.scrollable": false,
     "razor.disabled": true,
-    "java.configuration.checkProjectSettingsExclusions": false
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "explorer.confirmDelete": false
 }

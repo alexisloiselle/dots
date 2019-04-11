@@ -19,7 +19,7 @@ export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.cargo"
 export GOPATH=$HOME/go
 export PATH="$PATH:/home/alexis/.dotnet/tools"
-export MSBuildSDKsPath=/opt/dotnet/sdk/2.2.102/Sdks
+export MSBuildSDKsPath=/opt/dotnet/sdk/2.2.105/Sdks
 export PATH=$MSBuildSDKsPath:$PATH
 export DOTNET_ROOT=/usr/bin
 

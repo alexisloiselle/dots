@@ -14,7 +14,6 @@ setxkbmap -layout us,ca -option 'grp:win_space_toggle'
 
 # open apps on startup
 i3-msg "workspace 3; exec chromium --force-device-scale-factor=1.2 &"
-#i3-msg "workspace 10; exec spot &"
 i3-msg "workspace 1; exec alacritty &"
 
 # notification daemon
@@ -31,8 +30,5 @@ conky -q &
 
 # gestures
 $HOME/.rbenv/shims/fusuma -c $HOME/.config/fusuma/config.yml &
-
-# bug with pulseaudio
-rm $HOME/.config/pulse/cookie &
 
 disown
