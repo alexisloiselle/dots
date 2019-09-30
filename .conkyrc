@@ -39,7 +39,7 @@ conky.config = {
 
 conky.text = [[
 ${color grey}${time %d/%m} $color${time %H:%M}
-${color grey}${format_time $battery_time "\hh \mm"} $color${battery_percent}%
+${color grey}${format_time $battery_time "\hh:\mm"} $color${battery_percent}%
 ${color grey}wlan $color${wireless_essid}
 ${color grey}cpu $color${cpu cpu0}%
 ${color grey}ram $color$memperc%

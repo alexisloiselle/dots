@@ -33,7 +33,16 @@ fi
 
 # start x
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
+    choice=$(read -e "Which environment?1) i3 2) dde [default=1] [Enter] ")
+    case "$choice" in
+    "2")
+        export DESKTOP_ENV="dde"
+        ;;
+    *)
+        export DESKTOP_ENV="i3"
+        ;;
+    esac
+    exec startx
 fi
 
 alias gcom='git commit -m "$(curl -s whatthecommit.com/index.txt)"'

@@ -49,5 +49,6 @@
     "java.configuration.checkProjectSettingsExclusions": false,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "liveshare.featureSet": "insiders"
 }

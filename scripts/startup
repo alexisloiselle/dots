@@ -17,7 +17,7 @@ i3-msg "workspace 3; exec chromium --force-device-scale-factor=1.2 &"
 i3-msg "workspace 1; exec alacritty &"
 
 # notification daemon
-dunst &
+#dunst &
 
 # background
 $HOME/.fehbg &	
