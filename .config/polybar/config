@@ -171,7 +171,7 @@ exec = echo ""
 label-font = 7
 label-padding-left = 2
 label-foreground = ${colors.drun}
-click-left = rofi -show drun -theme Monokai -font "Roboto 14" -show-icons
+click-left = rofi -show drun -theme Monokai -font "Roboto 14"
 
 [module/i3]
 type = internal/i3

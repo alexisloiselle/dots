@@ -26,6 +26,8 @@ export DOTNET_ROOT=/usr/bin
 export EDITOR='nano'
 export VISUAL='nano'
 
+export $(dbus-launch)
+
 # custom scripts
 if [ -z $(echo $PATH | grep -o $HOME/scripts) ]; then
    export PATH="${PATH}:$HOME/scripts"
@@ -49,5 +51,6 @@ alias gcom='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 alias c='clear'
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias l='exa -alh'
+alias yays='yay -Syu --sudoloop --noupgrademenu --nocleanmenu --nodiffmenu --useask --noconfirm'
 
 eval "$(rbenv init -)"

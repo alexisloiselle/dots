@@ -31,4 +31,7 @@ conky -q &
 # gestures
 $HOME/.rbenv/shims/fusuma -c $HOME/.config/fusuma/config.yml &
 
+# Power Management
+xfce4-power-manager &
+
 disown
