@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+xset s off dpms 0 10 0
 maim /tmp/lock.png
-convert /tmp/lock.png -blur 0x8 /tmp/lock.png  
-i3lock -i /tmp/lock.png
+convert /tmp/lock.png -blur 0x8 /tmp/lock.png
+i3lock -i /tmp/lock.png --ignore-empty-password --show-failed-attempts --nofork
+xset s off -dpms

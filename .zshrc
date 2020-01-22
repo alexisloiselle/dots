@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/alexis/.oh-my-zsh
 
@@ -25,6 +27,8 @@ export DOTNET_ROOT=/usr/bin
 
 export EDITOR='nano'
 export VISUAL='nano'
+export TERM='alacritty'
+export TERMCMD='alacritty'
 
 export $(dbus-launch)
 
@@ -35,16 +39,9 @@ fi
 
 # start x
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-    choice=$(read -e "Which environment?1) i3 2) dde [default=1] [Enter] ")
-    case "$choice" in
-    "2")
-        export DESKTOP_ENV="dde"
-        ;;
-    *)
-        export DESKTOP_ENV="i3"
-        ;;
-    esac
-    exec startx
+#    if [[ "$(tty)" = "/dev/tty1" ]]; then
+        pgrep i3 || exec startx
+ #   fi
 fi
 
 alias gcom='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
@@ -52,5 +49,6 @@ alias c='clear'
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias l='exa -alh'
 alias yays='yay -Syu --sudoloop --noupgrademenu --nocleanmenu --nodiffmenu --useask --noconfirm'
+alias open='xdg-open'
 
 eval "$(rbenv init -)"

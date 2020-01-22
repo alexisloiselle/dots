@@ -1,0 +1,50 @@
+conky.config = {
+    times_in_seconds = true,
+    alignment = 'top_left',
+    background = true,
+    border_outer_margin = 25,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = white,
+    default_outline_color = '#555',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = true,
+    double_buffer = true,
+    extra_newline = false,
+    font = 'Hack:size=10',
+    gap_x = 50,
+    gap_y = 95,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_transparent = true,
+    own_window_argb_visual = false,
+    own_window_argb_value = 150,
+    own_window_colour = "#333",
+    own_window_type = "override",
+    own_window_hints = 'below',
+    short_units = true,
+    stippled_borders = 0,
+    update_interval = 3,
+    uppercase = false,
+    use_xft = true,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false,
+}
+
+conky.text = [[
+${color grey}${time %d/%m} $color${time %H:%M}
+${color grey}${format_time $battery_time "\hh:\mm"} $color${battery_percent}%
+${color grey}wlan $color${wireless_essid wlp58s0}
+${color grey}cpu $color${cpu cpu0}%
+${color grey}ram $color$memperc%
+${color grey}temp $color${hwmon 2 temp 2}°C
+${color grey}wthr $color${exec cat /tmp/weather}
+${color grey}updt $color${exec if output=$((checkupdates) | wc -l ); then echo $output; else echo n.a.; fi}
+${color grey}pkgs $color${exec pacman -Q | wc -l}
+]]

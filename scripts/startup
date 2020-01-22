@@ -3,35 +3,39 @@
 # on power button press
 systemd-inhibit --what=handle-power-key sleep infinity & 
 
+# keyboard layouts
+setxkbmap -layout us,ca -option 'grp:win_space_toggle'
+
+# automount usb
+udiskie &
+
 # polybar script
-launch-polybar &
+$HOME/scripts/launch-polybar &
 
 # compositor 
 compton -Ccb &
-
-# keyboard layouts
-setxkbmap -layout us,ca -option 'grp:win_space_toggle'
 
 # open apps on startup
 i3-msg "workspace 3; exec chromium --force-device-scale-factor=1.2 &"
 i3-msg "workspace 1; exec alacritty &"
 
-# notification daemon
-#dunst &
-
 # background
 $HOME/.fehbg &	
 
-# automount usb
-udiskie &
-
 # conky stats
-conky -q &	
+conky -q -c $HOME/.config/conky/.conkyrc &	
+conky -q -c $HOME/.config/conky/.shortcutrc &	
 
 # gestures
 $HOME/.rbenv/shims/fusuma -c $HOME/.config/fusuma/config.yml &
 
 # Power Management
 xfce4-power-manager &
+
+# weather
+$HOME/scripts/weather &
+
+# on lid close
+xss-lock -- $HOME/scripts/lock &
 
 disown

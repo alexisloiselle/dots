@@ -4,12 +4,6 @@ set $terminal alacritty
 
 floating_modifier $mod
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
 bindsym $alt+Tab focus right
 bindsym $alt+Shift+Tab focus left
 
@@ -20,13 +14,7 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # disable mouse focus
-focus_follows_mouse no
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+focus_follows_mouse yes
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left 30 px
@@ -178,7 +166,6 @@ bindsym $mod+p exec monitors
 bindsym $mod+t exec light
 
 bindsym $mod+Return exec "$terminal"
-bindsym Control+$mod+$alt+l exec lock
 
 bindsym --release Print exec scrot
 
@@ -197,11 +184,6 @@ bindsym $mod+b exec chromium --force-device-scale-factor=1.2 &
 bindsym $mod+m exec spot
 bindsym $mod+c exec code
 
-bindsym $mod+q move scratchpad
-bindsym $mod+shift+q scratchpad show
-bindsym $mod+period exec emoji-keyboard -s &
+bindsym --release $mod+shift+p exec colorpicker-custom
 
-bindsym $mod+Shift+c exec colorpicker-custom
-
-## startup ##
-exec --no-startup-id startup &
+exec --no-startup-id $HOME/scripts/startup &
