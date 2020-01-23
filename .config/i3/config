@@ -76,6 +76,10 @@ for_window [class="Spotify"] move to workspace 10
 for_window [class="^Pavucontrol$"] floating enable
 for_window [class="^GNU Image Manipulation Program$"] floating enable
 for_window [class="^Alacritty$"] floating enable resize set 1280 720, move position 320 180
+for_window [instance="android-file-transfer"] floating enable
+for_window [instance="android-file-transfer"] floating enable
+for_window [class="feh"] floating enable
+for_window [instance="blueman-manager"] floating enable resize set 936 812, move position 489 142
 
 # The Chrome "Page Unresponsive" dialog is not floating...
 for_window [title="Page Unresponsive"] floating enable
