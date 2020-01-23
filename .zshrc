@@ -26,7 +26,7 @@ export PATH=$MSBuildSDKsPath:$PATH
 export DOTNET_ROOT=/usr/bin
 
 export EDITOR='nano'
-export VISUAL='nano'
+export VISUAL='code'
 export TERM='alacritty'
 export TERMCMD='alacritty'
 
