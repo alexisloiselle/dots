@@ -39,9 +39,7 @@ fi
 
 # start x
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-#    if [[ "$(tty)" = "/dev/tty1" ]]; then
-        pgrep i3 || exec startx
- #   fi
+    pgrep i3 || exec startx
 fi
 
 alias gcom='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
