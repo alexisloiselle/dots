@@ -23,8 +23,8 @@ i3-msg "workspace 1; exec alacritty &"
 $HOME/.fehbg &	
 
 # conky stats
-conky -q -c $HOME/.config/conky/.conkyrc &	
-conky -q -c $HOME/.config/conky/.shortcutrc &	
+conky -c $HOME/.config/conky/.conkyrc 	
+conky -c $HOME/.config/conky/.shortcutrc 
 
 # gestures
 $HOME/.rbenv/shims/fusuma -c $HOME/.config/fusuma/config.yml &
