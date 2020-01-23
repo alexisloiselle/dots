@@ -51,51 +51,10 @@ font-6 = "Font Awesome 5 Free:style=Solid:pixelsize=18;1"
 
 modules-left = drun i3 xwindow
 modules-center = spotify
-;xwindow weather update installed
+;weather update installed
 powermenu
-modules-right = weather xbacklight volume xkeyboard battery wlan date 
-
-tray-position = right
-tray-padding = 1
-
-override-redirect = false
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/deepin]
-monitor = eDP1
-offset-x = 80%
-width = 20%
-height = 50
-radius = 0.0
-fixed-center = true
-bottom = true
-
-background =  #00000000
-foreground = #EE333333
-
-line-size = 2
-line-color = #f00
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 3
-module-margin-right = 0
-
-font-0 = "Roboto:pixelsize=14;1"
-font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
-font-2 = "Wuncon Siji:pixelsize=9;1"
-font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=14;1"
-font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=14;1"
-font-5 = "Font Awesome 5 Brands:pixelsize=14;1"
-font-6 = "Font Awesome 5 Free:style=Solid:pixelsize=18;1"
-
-modules-right = update installed date-no-border
+modules-right = memory cpu xbacklight pulseaudio xkeyboard wlan battery date
+;weather
 
 tray-position = right
 tray-padding = 1
@@ -106,8 +65,9 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [module/xwindow]
-inherit = module/xwindow
+type = internal/xwindow
 label-foreground = ${colors.foreground-alt}
+label = %title:0:50:...%
 
 [module/update]
 type = custom/script
@@ -147,12 +107,9 @@ exec = cat /tmp/weather
 type = custom/script
 interval = 10
 format = <label>
-label = %output%
+label = %output:0:50:...%
 label-foreground = ${colors.foreground-alt}
 exec = spotify-metadata
-
-[module/xwindow]
-type = internal/xwindow
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -247,16 +204,43 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "cpu"
+format-prefix = "cpu "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 
 label = %percentage:2%%
 
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+interval = 5
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-underline = ${colors.primary}
+
+ramp-volume-foreground = ${colors.foreground-alt}
+
+label-muted = " muted"
+label-muted-foreground = ${colors.foreground-alt}
+label-muted-underline = ${colors.primary}
+
+; Right click
+click-right = pavucontrol &
+;click-middle = pavucontrol & 
+
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "ram"
+format-prefix = "ram "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 
@@ -309,7 +293,6 @@ ramp-volume-foreground = ${colors.primary}
 label-muted = " muted"
 label-muted-foreground = ${colors.foreground-alt}
 label-muted-underline = ${colors.primary}
-
 
 mapping = false
 format = <label>
