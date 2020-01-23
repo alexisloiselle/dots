@@ -107,7 +107,7 @@ exec = cat /tmp/weather
 type = custom/script
 interval = 10
 format = <label>
-label = %output:0:50:...%
+label = %output:0:60:...%
 label-foreground = ${colors.foreground-alt}
 exec = spotify-metadata
 
