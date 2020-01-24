@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo Startup i3...
+
+
 # on power button press
 systemd-inhibit --what=handle-power-key sleep infinity & 
 
@@ -34,8 +37,5 @@ xfce4-power-manager &
 
 # weather
 $HOME/scripts/weather &
-
-# on lid close
-xss-lock -- $HOME/scripts/lock &
 
 disown

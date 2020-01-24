@@ -27,6 +27,8 @@ export DOTNET_ROOT=/usr/bin
 
 export EDITOR='nano'
 export VISUAL='code'
+
+export TERMINFO=/usr/share/terminfo
 export TERM='alacritty'
 export TERMCMD='alacritty'
 
