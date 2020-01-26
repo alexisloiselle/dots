@@ -305,11 +305,12 @@ full-at = 99
 
 format-charging-underline = ${colors.primary}
 format-discharging-underline = ${colors.primary}
+format-full-underline = ${colors.primary}
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 
 ramp-capacity-0 = 
