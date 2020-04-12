@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Dependencies:
+# jq
+
+api_key=4444fafaec0af43bbc5530773ecc2d41
+weather_file=/tmp/weather
+echo n.a. > $weather_file
+
+while true
+do
+	while ! nping -c1 google.com &> /dev/null
+	do
+		sleep 5
+	done
+	
+
+	location=$(curl -s http://ipinfo.io/loc)
+	request=$(curl -s https://api.darksky.net/forecast/$api_key/$location?units=ca&exclude=minutely,hourly,daily,flags)
+	summary=$(echo $(echo $request | jq '.currently.summary') | cut -d "\"" -f 2)
+	#temperature=$(printf "%.0f°C" $(echo $request | jq '.currently.temperature'))
+	feels_like=$(printf "%.0f°C" $(echo $request | jq '.currently.apparentTemperature'))
+	# humidity=$(printf "%.0f%%" $(echo $(echo $request | jq '.currently.humidity')*100 | bc))
+	# wind=$(echo $request | jq '.currently.windSpeed')" km/h"
+	# visibility=$(echo $request | jq '.currently.visibility')" km"
+
+	#echo -e "$summary\n$temperature\n$feels_like\n$humidity\n$wind\n$visibility\n$temperature/$feels_like $summary" > $weather_file
+	echo -e "$feels_like" > $weather_file
+
+	sleep 2400
+done

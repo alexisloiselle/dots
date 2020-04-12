@@ -184,9 +184,9 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-bindsym $mod+b exec chromium --force-device-scale-factor=1.2 &
-bindsym $mod+m exec spot
-bindsym $mod+c exec code
+bindsym $mod+b exec chromium --force-device-scale-factor=1.2 &; workspace 3
+bindsym $mod+m exec spot; workspace 10
+bindsym $mod+c exec code; workspace 2
 
 bindsym --release $mod+shift+p exec colorpicker-custom
 

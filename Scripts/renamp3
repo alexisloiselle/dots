@@ -1,0 +1,37 @@
+#!/bin/bash
+
+function yes_or_no {
+    while true; do
+        read -p "$* [y/n]: " yn
+        case $yn in
+            [Yy]*) return 0  ;;  
+            [Nn]*) echo "Aborted" ; return  1 ;;
+        esac
+    done
+}
+
+getTitleFF()   { ffprobe "$1" 2>&1 | sed -E -n 's/^ *title *: (.*)/\1/p'; }
+getArtistFF()   { ffprobe "$1" 2>&1 | sed -E -n 's/^ *artist *: (.*)/\1/p'; }
+
+title=$(getTitleFF "$1")
+title=${title// /.}
+title=${title//\:/.}
+title=${title//\//.}
+title=${title//\*/.}
+title=${title//\(/.}
+title=${title//\)/.}
+title=${title//\?/.}
+title=${title//\&/.}
+
+artist=$(getArtistFF "$1")
+artist=${artist// /.}
+artist=${artist//\:/.}
+artist=${artist//\//.}
+artist=${artist//\*/.}
+artist=${artist//\(/.}
+artist=${artist//\)/.}
+artist=${artist//\?/.}
+artist=${artist//\&/.}
+
+mv "$1" "$title-$artist.mp3"
+

@@ -2,9 +2,13 @@
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "window.menuBarVisibility": "toggle",
-    "editor.tabSize": 4,
+    "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
+    "editor.trimAutoWhitespace": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
     "[erb]": {
         "editor.tabSize": 2
     },
@@ -15,10 +19,17 @@
         "editor.tabSize": 2
     },
     "[typescript]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true
+    },
+    "[typescriptreact]": {
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true
     },
     "[javascript]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
     },
     "[scss]": {
         "editor.tabSize": 2
@@ -26,7 +37,6 @@
     "[markdown]": {
         "editor.tabSize": 2
     },
-    "workbench.iconTheme": "eq-material-theme-icons",
     "git.autofetch": true,
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
@@ -37,18 +47,31 @@
     "breadcrumbs.enabled": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.statusBar.feedback.visible": false,
     "workbench.colorTheme": "Feather",
-    "java.errors.incompleteClasspath.severity": "ignore",
     "emmet.includeLanguages": {
         "erb": "html"
     },
     "omnisharp.path": "latest",
     "gitlens.currentLine.scrollable": false,
     "razor.disabled": true,
-    "java.configuration.checkProjectSettingsExclusions": false,
     "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "explorer.confirmDelete": false,
-    "liveshare.featureSet": "insiders"
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "[less]": {
+      "editor.defaultFormatter": "michelemelluso.code-beautifier",
+      "editor.formatOnSave": true
+    },
+    "files.encoding": "utf8bom",
+    "files.encoding": "utf8",
+    "files.encoding": "windows1252",
+    "explorer.confirmDragAndDrop": false,
+    "files.exclude": {
+      "**/.classpath": true,
+      "**/.project": true,
+      "**/.settings": true,
+      "**/.factorypath": true
+    }
 }

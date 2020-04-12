@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+if count=$(checkupdates 2> /dev/null)
+then 
+	echo $(printf "$count" | wc -l)
+else 
+	echo n.a.
+fi

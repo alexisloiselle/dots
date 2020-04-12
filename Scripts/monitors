@@ -1,0 +1,45 @@
+#!/bin/bash
+
+primary_monitor=$(xrandr | awk '/primary/ {print $1;}')
+primary_mode="--auto"
+
+secondary_monitor=$(xrandr | awk '/^DP1/ {print $1;}' | sed -n 1p)
+secondary_mode="--auto"
+disconnected=$(xrandr | awk "/$secondary_monitor disconnected/")
+
+(pgrep -f top > /dev/null) && killall -p polybar
+
+case "$@" in
+	"1")
+		xrandr --output $secondary_monitor --off --output $primary_monitor $primary_mode
+		launch-polybar
+		;;
+	"2")
+		if [ ! "$disconnected" ]; then 
+			xrandr --output $primary_monitor --off --output $secondary_monitor $secondary_mode
+		else
+			echo "No monitor connected"
+		fi
+		launch-polybar
+		;;
+	"all")
+		if [ ! "$disconnected" ]; then 
+			xrandr --output $primary_monitor $primary_mode --output $secondary_monitor $secondary_mode --left-of $primary_monitor
+		else
+			echo "No secondary monitor connected"
+		fi
+		launch-polybar
+		;;
+	"clone")
+		xrandr --output $primary_monitor $primary_mode --output $secondary_monitor $secondary_mode --same-as $primary_monitor
+		launch-polybar
+		;;
+	*)
+        if xrandr | grep -q "^$secondary_monitor connected"; then
+			monitors all
+		else
+			monitors 1
+		fi
+		;;
+
+esac

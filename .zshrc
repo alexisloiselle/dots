@@ -12,6 +12,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/nvm/init-nvm.sh
 
 # User configuration
 
@@ -24,9 +25,14 @@ export PATH="$PATH:/home/alexis/.dotnet/tools"
 export MSBuildSDKsPath=/opt/dotnet/sdk/2.2.105/Sdks
 export PATH=$MSBuildSDKsPath:$PATH
 export DOTNET_ROOT=/usr/bin
+export JAVA8_HOME=/usr/lib/jvm/java-8-openjdk 
 
+# maintainx
+export COMPOSE_CONVERT_WINDOWS_PATHS=1
+
+export LESS='-SRXF'
 export EDITOR='nano'
-export VISUAL='code'
+export VISUAL='code -w -n'
 
 export TERMINFO=/usr/share/terminfo
 export TERM='alacritty'
@@ -35,8 +41,8 @@ export TERMCMD='alacritty'
 export $(dbus-launch)
 
 # custom scripts
-if [ -z $(echo $PATH | grep -o $HOME/scripts) ]; then
-   export PATH="${PATH}:$HOME/scripts"
+if [ -z $(echo $PATH | grep -o $HOME/Scripts) ]; then
+   export PATH="${PATH}:$HOME/Scripts"
 fi
 
 # start x
@@ -52,3 +58,4 @@ alias yays='yay -Syu --sudoloop --noupgrademenu --nocleanmenu --nodiffmenu --use
 alias open='xdg-open'
 
 eval "$(rbenv init -)"
+
