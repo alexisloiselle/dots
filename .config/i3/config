@@ -190,4 +190,4 @@ bindsym $mod+c exec code; workspace 2
 
 bindsym --release $mod+shift+p exec colorpicker-custom
 
-exec --no-startup-id $HOME/scripts/startup &
+exec --no-startup-id $HOME/Scripts/startup &
