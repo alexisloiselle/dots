@@ -2,6 +2,7 @@
 
 echo Startup i3...
 
+export $(dbus-launch)
 
 # on power button press
 systemd-inhibit --what=handle-power-key sleep infinity & 

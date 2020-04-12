@@ -38,8 +38,6 @@ export TERMINFO=/usr/share/terminfo
 export TERM='alacritty'
 export TERMCMD='alacritty'
 
-export $(dbus-launch)
-
 # custom scripts
 if [ -z $(echo $PATH | grep -o $HOME/Scripts) ]; then
    export PATH="${PATH}:$HOME/Scripts"
