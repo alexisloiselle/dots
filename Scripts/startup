@@ -13,7 +13,7 @@ setxkbmap -layout us,ca -option 'grp:win_space_toggle'
 udiskie &
 
 # polybar script
-$HOME/scripts/launch-polybar &
+$HOME/Scripts/launch-polybar &
 
 # compositor 
 compton -Ccb &
@@ -36,6 +36,6 @@ $HOME/.rbenv/shims/fusuma -c $HOME/.config/fusuma/config.yml &
 xfce4-power-manager &
 
 # weather
-$HOME/scripts/weather &
+$HOME/Scripts/weather &
 
 disown
