@@ -2,6 +2,6 @@
 
 notify-send 'scrot' 'waiting for selection...'
 png_file=$(date +%s).png
-maim -s ~/screenshots/$png_file
+maim -s ~/Screenshots/$png_file
 xclip -sel clip -t image/png < ~/Screenshots/$png_file
 notify-send 'scrot' 'saved to ~/Screenshots'
