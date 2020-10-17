@@ -1,0 +1,8 @@
+{
+	"React FunctionComponent": {
+		"scope": "typescriptreact",
+		"prefix": "fcom",
+		"body":"import React from \"react\"\n\ninterface IProps {\n\t\n}\n\nconst ${1:Component}: React.FunctionComponent<IProps> = props => {\n\treturn (\n\t\t${2}\r\t)\r}\n\nexport default ${1}",
+		"description": "Create a React.FunctionComponent"
+	}
+}
