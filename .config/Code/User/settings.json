@@ -9,14 +9,19 @@
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
     },
+    "[rust]": {
+      "editor.tabSize": 4,
+      "editor.defaultFormatter": "rust-lang.rust"
+    },
     "[erb]": {
-        "editor.tabSize": 2
+    "editor.tabSize": 2
     },
     "[ruby]": {
         "editor.tabSize": 2
     },
     "[html]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
         "editor.tabSize": 2,
